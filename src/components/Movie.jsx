@@ -1,11 +1,9 @@
 import React from "react";
-import {useParams, useHistory, useRouteMatch, Link, Switch, Route} from 'react-router-dom';
+import {useParams, useRouteMatch, Link, Switch, Route} from 'react-router-dom';
 
 export default function Movie() {
 
     let { title } = useParams();
-
-    let value = useHistory();
 
     let { path, url } = useRouteMatch();
    
