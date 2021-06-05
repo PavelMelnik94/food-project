@@ -9,29 +9,29 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import { Category } from "./pages/Category";
-import Meal from "./components/Meal";
+import Recipe from "./pages/Recipe";
 
 function App() {
   return (
     <div className="app">
       <Router>
-      <Header />
-      
-      <main className="container content">
+        <Header />
+
+        <main className="container content">
           <Switch>
-            <Route exact path="/"> 
-            <Home />
+            <Route exact path="/">
+              <Home />
             </Route>
             <Route path="/about" component={About} />
             <Route path="/contacts" component={Contact} />
-            <Route path='/category/:name' component={ Category } />
-            <Route path='/meals/:id' component={ Meal } />
+            <Route path="/category/:name" component={Category} />
+            <Route path="/meal/:id" component={Recipe} />
             <Route component={NotFound} />
           </Switch>
-      </main>
+        </main>
 
-      <Footer />
-        </Router>
+        <Footer />
+      </Router>
     </div>
   );
 }

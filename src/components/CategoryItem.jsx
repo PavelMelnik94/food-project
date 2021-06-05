@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function CategoryItem(props) {
   const {
@@ -11,18 +11,16 @@ export default function CategoryItem(props) {
   return (
     <div className="card">
       <div className="card-image">
-        <img src={img} alt={name}/>
-        
-        
+        <img src={img} alt={name} />
       </div>
       <div className="card-content">
         <span className="card-title">{name}</span>
-        <p>
-          {descr.slice(0, 100)} ...
-        </p>
+        <p>{descr.slice(0, 100)} ...</p>
       </div>
       <div className="card-action">
-          <Link to={`/category/${name}`} className='btn'>смотреть категорию</Link>
+        <Link to={`/category/${name}`} className="btn">
+          смотреть категорию
+        </Link>
       </div>
     </div>
   );

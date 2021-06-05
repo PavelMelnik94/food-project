@@ -1,32 +1,32 @@
-import { useEffect, useState } from 'react'
-import  { getFilteredCategory } from '../api';
-import { useParams } from 'react-router-dom';
-import Preloader from '../components/Preloader';
-import {MealList} from '../components/MealList'
+import { useEffect, useState } from "react";
+import { getFilteredCategory } from "../api";
+import { useParams } from "react-router-dom";
+import Preloader from "../components/Preloader";
+import { MealList } from "../components/MealList";
+import { useHistory } from "react-router-dom";
 
 function Category(props) {
+  const [meals, setMeals] = useState([]);
 
-    
+  const { name } = useParams();
 
-    const [meals, setMeals] = useState([]);
+  const { goBack } = useHistory();
 
-    const { name } = useParams();
+  useEffect(() => {
+    getFilteredCategory(name).then((data) => setMeals(data.meals));
+    return () => {
+      console.log("dismount");
+    };
+  }, [name]);
 
-   useEffect(() => {
-    getFilteredCategory(name).then(data => setMeals(data.meals))
-       return () => {
-           console.log('dismount');
-       }
-   }, [name])
-
-    return (
-        <>
-
-        {!meals.length ? <Preloader /> : <MealList meals={meals} />}
-            
-        </>
-    )
+  return (
+    <>
+      <button className="btn" onClick={goBack}>
+        назад
+      </button>
+      {!meals.length ? <Preloader /> : <MealList meals={meals} />}
+    </>
+  );
 }
 
-
-export {Category};          
+export { Category };
