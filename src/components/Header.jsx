@@ -7,7 +7,7 @@ function Header() {
       <nav className="blue-grey darken-3 nav">
         <div className="nav-wrapper">
           <Link to="/" className="brand-logo">
-            React Movies
+            React Food
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down ">
             <li>
